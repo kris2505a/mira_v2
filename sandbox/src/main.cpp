@@ -1,9 +1,16 @@
 #include <core/log/mi_log.hpp> 
+#include  <core/window/mi_context.hpp>
+
 
 int main() {
-    MI_LOG_INFO("yay: {}", 0);
-    MI_LOG_DEBUG("yay: {}", 1);
-    MI_LOG_WARN("yay: {}", 2);
-    MI_LOG_ERROR("yay: {}", 3);
-    MI_LOG_FATAL("yay: {}", 4);
+    if (auto res = mi::core::Context::init(); !res) {
+        const auto& e = res.error();
+        MI_LOG_FATAL("Error: {} | File: {} | Line: {}", e.get_message(), e.get_file(), e.get_line());
+        return -1;
+    }
+
+    MI_LOG_DEBUG("Init Successful");
+
+    mi::core::Context::shut_down();
+
 }

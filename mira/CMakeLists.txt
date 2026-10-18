@@ -5,6 +5,9 @@ add_subdirectory(src/core)
 add_subdirectory(src/render_hw)
 # add_subdirectory(src/engine) # future engine layer
 
+add_subdirectory(thirdparty/glfw)
+
+
 target_include_directories(mira
     INTERFACE
         ${CMAKE_CURRENT_SOURCE_DIR}

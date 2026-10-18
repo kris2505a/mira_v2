@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.20)
 
 set(PROJECT_NAME core)
 
-
 project(${PROJECT_NAME} LANGUAGES C CXX)
 
 # =========================
@@ -27,8 +26,12 @@ add_library(${PROJECT_NAME} SHARED
 # Include Directories
 # =========================
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-    ${CMAKE_SOURCE_DIR}/mira/src
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        ${CMAKE_SOURCE_DIR}/mira/src
+
+    PRIVATE
+        ${CMAKE_SOURCE_DIR}/mira/thirdparty/glfw/include
 )
 
 target_compile_features(${PROJECT_NAME}
@@ -63,5 +66,5 @@ endif()
 # =========================
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    # TODO: link glfw
+    glfw
 )

@@ -3,7 +3,7 @@
 #include <memory>
 #include <expected>
 
-#include "mi_core.hpp"
+#include "../mi_core.hpp"
 
 NS_CORE
 
