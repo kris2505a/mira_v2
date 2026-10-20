@@ -13,6 +13,7 @@ public:
     MI_CORE_API static void shut_down();
     MI_CORE_API static Expected<std::vector<std::string>, Error> retrieve_extensions();
     MI_CORE_API static void poll_events();
+    MI_CORE_API static std::string_view get_last_error();
 
 private:
     static std::string s_last_error;

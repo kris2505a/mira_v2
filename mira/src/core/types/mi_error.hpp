@@ -1,6 +1,8 @@
 #pragma once
 #include "core/mi_core.hpp"
 #include "mi_types.hpp"
+#include <string>
+#include <iostream>
 
 #include <source_location>
 
@@ -10,7 +12,8 @@ enum class ErrorType {
     None = 0,
     FailedToInitGLFW,
     ExtensionsNotFound,
-    FailedToRetrieveExtensions
+    FailedToRetrieveExtensions,
+    FailedToCreateGLFWWindow
 };
 
 class MI_CORE_API Error {

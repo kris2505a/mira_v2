@@ -30,12 +30,12 @@ template<typename T>
 using WeakReference = std::weak_ptr<T>;
 
 template <typename T, typename... Args>
-Scope<T> createScope(Args&&... args) {
+Scope<T> create_scope(Args&&... args) {
     return std::make_unique<T>(std::forward<Args>(args)...);
 }
 
 template <typename T, typename... Args>
-Reference<T> createRef(Args&&... args) {
+Reference<T> create_reference(Args&&... args) {
     return std::make_shared<T>(args...);
 }
 

@@ -15,11 +15,11 @@ enum class LogType {
 };
 
 
-#define MI_LOG_INFO(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Info, msg __VA_OPT__(,) __VA_ARGS__)
-#define MI_LOG_DEBUG(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Debug, msg __VA_OPT__(,) __VA_ARGS__)
-#define MI_LOG_WARN(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Warn, msg __VA_OPT__(,) __VA_ARGS__)
-#define MI_LOG_ERROR(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Error, msg __VA_OPT__(,) __VA_ARGS__)
-#define MI_LOG_FATAL(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Fatal, msg __VA_OPT__(,) __VA_ARGS__)
+#define MI_LOG_INFO(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Info, msg, __VA_ARGS__)
+#define MI_LOG_DEBUG(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Debug, msg, __VA_ARGS__)
+#define MI_LOG_WARN(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Warn, msg, __VA_ARGS__)
+#define MI_LOG_ERROR(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Error, msg, __VA_ARGS__)
+#define MI_LOG_FATAL(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Fatal, msg, __VA_ARGS__)
 
 class MI_CORE_API Log {
 

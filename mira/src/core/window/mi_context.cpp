@@ -12,9 +12,12 @@ Expected<void, Error> Context::init() {
         s_last_error = std::string(description);
     });
 
+
     if (glfwInit()) {
         return {};
     }
+
+    glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 
     return Unexpected {
         Error {
@@ -59,6 +62,10 @@ Expected<std::vector<std::string>, Error> Context::retrieve_extensions() {
 
 void Context::poll_events() {
     glfwPollEvents();
+}
+
+std::string_view Context::get_last_error() {
+    return s_last_error;
 }
 
 NS_CORE_END

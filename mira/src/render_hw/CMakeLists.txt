@@ -63,5 +63,7 @@ endif()
 # =========================
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    # TODO: Link vulkan
+    d3d12
+    dxgi
+    dxguid
 )
