@@ -1,7 +1,8 @@
 #include "mi_error.hpp"
 
+#include <comdef.h>
 
-NS_CORE
+NS(core)
 
 std::ostream& operator<<(std::ostream& ostr, const Error& err) {
     ostr << err.get_message()
@@ -33,4 +34,9 @@ u32 Error::get_line() const {
     return m_line;
 }
 
-NS_CORE_END
+std::string Error::get_error_from_hresult(HRESULT hr) {
+    _com_error err(hr);
+    return std::string(err.ErrorMessage());
+}
+
+NS_END

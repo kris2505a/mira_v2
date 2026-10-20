@@ -1,9 +1,9 @@
 #pragma once
-#include "core/mi_core.hpp"
+#include "mi_core.hpp"
 #include <string>
 #include <format>
 
-NS_CORE
+NS(core)
 
 
 enum class LogType {
@@ -21,7 +21,7 @@ enum class LogType {
 #define MI_LOG_ERROR(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Error, msg, __VA_ARGS__)
 #define MI_LOG_FATAL(msg, ...) mi::core::Log::log_message(PRJ_NAME, mi::core::LogType::Fatal, msg, __VA_ARGS__)
 
-class MI_CORE_API Log {
+class MIRA_API Log {
 
 public:
 	template <typename... Args>
@@ -36,4 +36,4 @@ private:
 
 };
 
-NS_CORE_END
+NS_END

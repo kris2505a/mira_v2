@@ -1,12 +1,14 @@
 #pragma once
-#include "core/mi_core.hpp"
+#include "mi_core.hpp"
 #include "mi_types.hpp"
 #include <string>
 #include <iostream>
 
 #include <source_location>
+#include "mi_win_types.hpp"
 
-NS_CORE
+
+NS(core)
 
 enum class ErrorType {
     None = 0,
@@ -16,7 +18,7 @@ enum class ErrorType {
     FailedToCreateGLFWWindow
 };
 
-class MI_CORE_API Error {
+class MIRA_API Error {
     friend std::ostream& operator<< (std::ostream& ostr, const Error& err);
 
 public:
@@ -28,6 +30,8 @@ public:
     [[nodiscard]] std::string_view get_file() const;
     [[nodiscard]] u32 get_line() const;
 
+    static std::string get_error_from_hresult(HRESULT hr);
+
 private:
     ErrorType m_type;
     std::string m_error;
@@ -35,4 +39,4 @@ private:
     std::string m_file;
 };
 
-NS_CORE_END
+NS_END  

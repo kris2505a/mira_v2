@@ -4,7 +4,7 @@
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
 
-NS_CORE
+NS(core)
 
 Window::Window(const WindowCreateInfo& create_info)
     : m_handle(nullptr), m_info(create_info) {
@@ -21,11 +21,11 @@ Window::Window(const WindowCreateInfo& create_info)
 
 }
 
-Expected<Scope<Window>, Error> Window::create_new(const WindowCreateInfo& create_info) {
+std::expected<Scope<Window>, Error> Window::create_new(const WindowCreateInfo& create_info) {
     
     auto window = create_scope<Window>(create_info);
     if (!window->m_handle) {
-        return Unexpected {
+        return std::unexpected {
             Error {
                 ErrorType::FailedToCreateGLFWWindow,
                 Context::get_last_error()
@@ -51,4 +51,4 @@ Window::~Window() {
 
 
 
-NS_CORE_END
+NS_END

@@ -3,11 +3,11 @@
 
 #include <GLFW/glfw3.h>
 
-NS_CORE
+NS(core)
 
 std::string Context::s_last_error = "None";
 
-Expected<void, Error> Context::init() {
+std::expected<void, Error> Context::init() {
     glfwSetErrorCallback([](int error, const char* description) {
         s_last_error = std::string(description);
     });
@@ -19,7 +19,7 @@ Expected<void, Error> Context::init() {
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 
-    return Unexpected {
+    return std::unexpected {
         Error {
             ErrorType::FailedToInitGLFW,
             s_last_error
@@ -31,12 +31,12 @@ void Context::shut_down() {
     glfwTerminate();
 }
 
-Expected<std::vector<std::string>, Error> Context::retrieve_extensions() {
+std::expected<std::vector<std::string>, Error> Context::retrieve_extensions() {
     u32 count;
     const char** glfwExtensions = glfwGetRequiredInstanceExtensions(&count);
 
     if (0 == count) {
-        return Unexpected {
+        return std::unexpected {
             Error {
                 ErrorType::ExtensionsNotFound,
                 "No extensions found for platform"
@@ -45,7 +45,7 @@ Expected<std::vector<std::string>, Error> Context::retrieve_extensions() {
     }
 
     if (!glfwExtensions) {
-        return Unexpected {
+        return std::unexpected {
             Error {
                 ErrorType::FailedToRetrieveExtensions,
                 "Failed to retrieve extensions from glfw"
@@ -68,4 +68,4 @@ std::string_view Context::get_last_error() {
     return s_last_error;
 }
 
-NS_CORE_END
+NS_END

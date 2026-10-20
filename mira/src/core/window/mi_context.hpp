@@ -1,22 +1,22 @@
 #pragma once
-#include "core/mi_core.hpp"
+#include "mi_core.hpp"
 #include "core/types/mi_error.hpp"
 #include "core/types/mi_types.hpp"
 
 #include <vector>
 
-NS_CORE
+NS(core)
 
 class Context {
 public:
-    MI_CORE_API static Expected<void, Error> init();
-    MI_CORE_API static void shut_down();
-    MI_CORE_API static Expected<std::vector<std::string>, Error> retrieve_extensions();
-    MI_CORE_API static void poll_events();
-    MI_CORE_API static std::string_view get_last_error();
+    MIRA_API static std::expected<void, Error> init();
+    MIRA_API static void shut_down();
+    MIRA_API static std::expected<std::vector<std::string>, Error> retrieve_extensions();
+    MIRA_API static void poll_events();
+    MIRA_API static std::string_view get_last_error();
 
 private:
     static std::string s_last_error;
 };
 
-NS_CORE_END
+NS_END

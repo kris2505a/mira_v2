@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-NS_CORE
+NS(core)
 
 std::string Log::type_to_string(LogType type) {
     switch (type) {
@@ -28,4 +28,4 @@ void Log::log_to_console(std::string_view log_type, std::string_view project_nam
     std::cout << "$(" << log_type << ") : [" << project_name << "]" << " -> " << formatted_message << "\n";
 }
 
-NS_CORE_END
+NS_END

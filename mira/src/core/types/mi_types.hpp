@@ -3,9 +3,9 @@
 #include <memory>
 #include <expected>
 
-#include "../mi_core.hpp"
+#include "mi_core.hpp"
 
-NS_CORE
+NS(core)
 
 using u8  = uint8_t;
 using u16 = uint16_t;
@@ -39,10 +39,5 @@ Reference<T> create_reference(Args&&... args) {
     return std::make_shared<T>(args...);
 }
 
-template <typename T, typename E>
-using Expected = std::expected<T, E>;
 
-template <typename E>
-using Unexpected = std::unexpected<E>;
-
-NS_CORE_END
+NS_END

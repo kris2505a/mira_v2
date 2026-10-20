@@ -1,5 +1,5 @@
 #pragma once
-#include "core/mi_core.hpp"
+#include "mi_core.hpp"
 #include "core/types/mi_types.hpp"
 #include "core/types/mi_error.hpp"
 
@@ -8,7 +8,7 @@
 
 struct GLFWwindow;
 
-NS_CORE
+NS(core)
 
 struct WindowCreateInfo {
     u32 width;
@@ -18,11 +18,11 @@ struct WindowCreateInfo {
 };
 
 
-class MI_CORE_API Window {
+class MIRA_API Window {
 public:
     Window(const WindowCreateInfo& create_info);
     ~Window();
-    static Expected<Scope<Window>, Error> create_new(const WindowCreateInfo& create_info);
+    static std::expected<Scope<Window>, Error> create_new(const WindowCreateInfo& create_info);
     bool is_open() const;
     HWND get_native_handle() const;
 
@@ -31,4 +31,4 @@ private:
     WindowCreateInfo m_info;
 };
 
-NS_CORE_END
+NS_END

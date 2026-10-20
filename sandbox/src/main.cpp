@@ -30,6 +30,8 @@ int main() {
     auto window = std::move(*window_result);
 
 
+
+    //main loop
     while (window->is_open()) {
         mi::core::Context::poll_events();
     }

@@ -28,15 +28,5 @@
                 "CMAKE_CXX_COMPILER": "cl.exe"
             }
         }
-    ],
-    "buildPresets": [
-        {
-            "name": "debug",
-            "configurePreset": "debug"
-        },
-        {
-            "name": "release",
-            "configurePreset": "release"
-        }
     ]
 }
